@@ -3,7 +3,7 @@
 #include <fstream>
 #include <windows.h>
 #include <direct.h>
-#include "sha256.h"
+#include "libs/sha256.h"
 
 
 void print(std::string str){
@@ -17,9 +17,11 @@ int main(){
     system("cls");
     SetConsoleTitle("BirbTool");
     wait(3);
-    print("Detecting PCI-E devices...");
-    wait(2);
-    print("BirbTool v1.3");
+    print("Checking for missing folders...");
+    mkdir("users");
+    mkdir("apps");
+    wait(1);
+    print("BirbTool v0.1");
     print(
     "Boot options:\n"
     "Use \"shutdown\" to shutdown birbTool.\n"
@@ -33,7 +35,6 @@ int main(){
     std::string ldr;
     std::cout << "BirbTool>";
     getline(std::cin, ldr);
-    print(ldr);
     if(ldr=="shutdown"){
         system("cls");
         print("Shutting down the system, please wait...");
